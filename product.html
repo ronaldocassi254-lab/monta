@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MONTA</title>
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="banner" data-banner></div>
+
+  <header class="site-header">
+    <a class="logo" href="index.html" data-store-name>MONTA</a>
+    <button class="nav-toggle" aria-expanded="false" aria-label="Menu"><span></span><span></span></button>
+    <nav class="site-nav">
+      <a href="index.html#shop">Shop</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#faq">FAQ</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="section" data-product></section>
+
+    <section class="section">
+      <div class="section-head"><h2>You might also like</h2></div>
+      <div class="grid" data-more></div>
+    </section>
+  </main>
+
+  <footer id="contact" class="site-footer">
+    <div>
+      <a class="logo" href="index.html" data-store-name>MONTA</a>
+      <p class="meta" data-store-tagline></p>
+    </div>
+    <div>
+      <h3>Contact</h3>
+      <a data-store-email href="#"></a>
+      <a data-store-instagram href="#" target="_blank" rel="noopener">Instagram</a>
+    </div>
+    <div>
+      <h3>Shop</h3>
+      <a href="index.html#shop">Collection</a>
+      <a href="index.html#faq">Shipping &amp; returns</a>
+    </div>
+    <p class="copyright">© <span data-year></span> <span data-store-name>MONTA</span></p>
+  </footer>
+
+  <script src="js/products.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

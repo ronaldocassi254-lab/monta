@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MONTA — Small-batch clothing</title>
+  <meta name="description" content="Small-batch clothing, designed and drawn in-house.">
+  <meta property="og:title" content="MONTA — Small-batch clothing">
+  <meta property="og:description" content="Small-batch clothing, designed and drawn in-house.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="banner" data-banner></div>
+
+  <header class="site-header">
+    <a class="logo" href="index.html" data-store-name>MONTA</a>
+    <button class="nav-toggle" aria-expanded="false" aria-label="Menu"><span></span><span></span></button>
+    <nav class="site-nav">
+      <a href="#shop">Shop</a>
+      <a href="#about">About</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Autumn / Winter collection</p>
+        <h1>Made in small runs.<br>Worn for years.</h1>
+        <p class="lede" data-store-tagline></p>
+        <div class="hero-actions">
+          <a class="btn" href="#shop">Shop the collection</a>
+          <a class="btn btn-ghost" href="#about">Our story</a>
+        </div>
+      </div>
+      <a class="hero-visual">
+        <div class="hero-frame" data-hero-visual></div>
+        <span class="hero-caption" data-hero-caption></span>
+      </a>
+    </section>
+
+    <section id="shop" class="section">
+      <div class="section-head">
+        <h2>The collection</h2>
+        <div class="filters" data-filters></div>
+      </div>
+      <div class="grid" data-grid></div>
+    </section>
+
+    <section id="about" class="section about">
+      <div>
+        <p class="eyebrow">About</p>
+        <h2>Every piece starts as a drawing.</h2>
+      </div>
+      <div class="about-copy">
+        <p>MONTA is a one-person studio. I sketch every print and pattern by hand, then work with a small family-run workshop to produce each design in a single run of around fifty pieces.</p>
+        <p>No seasons on repeat, no overstock, no discount bins. When a run sells out, it's gone — and the next drawing goes to print.</p>
+        <ul class="stats">
+          <li><strong>50</strong><span>pieces per run</span></li>
+          <li><strong>100%</strong><span>organic cotton</span></li>
+          <li><strong>1</strong><span>workshop, 12 people</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="faq" class="section faq">
+      <h2>Questions</h2>
+      <div class="faq-list">
+        <details>
+          <summary>How long does shipping take?</summary>
+          <p>Orders are packed within 2 working days. UK delivery takes 2–4 days; international 5–10 days. You'll get a tracking link by email.</p>
+        </details>
+        <details>
+          <summary>Can I return or exchange?</summary>
+          <p>Yes — within 30 days of delivery, unworn and with tags. Email us with your order number and we'll send a returns label.</p>
+        </details>
+        <details>
+          <summary>How do the sizes fit?</summary>
+          <p>Tops are cut boxy and relaxed. If you prefer a closer fit, size down. Every product page has a size guide with garment measurements.</p>
+        </details>
+        <details>
+          <summary>How should I care for my pieces?</summary>
+          <p>Wash cold, inside out, and dry flat. Skip the tumble dryer and your prints will last for years.</p>
+        </details>
+        <details>
+          <summary>Will a sold-out design come back?</summary>
+          <p>Rarely. Each run is a one-off, but now and then a favourite gets a second run — follow us on Instagram to hear first.</p>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contact" class="site-footer">
+    <div>
+      <a class="logo" href="index.html" data-store-name>MONTA</a>
+      <p class="meta" data-store-tagline></p>
+    </div>
+    <div>
+      <h3>Contact</h3>
+      <a data-store-email href="#"></a>
+      <a data-store-instagram href="#" target="_blank" rel="noopener">Instagram</a>
+    </div>
+    <div>
+      <h3>Shop</h3>
+      <a href="#shop">Collection</a>
+      <a href="#faq">Shipping &amp; returns</a>
+    </div>
+    <p class="copyright">© <span data-year></span> <span data-store-name>MONTA</span></p>
+  </footer>
+
+  <script src="js/products.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
