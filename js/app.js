@@ -43,6 +43,8 @@
     return garmentSVG(product, color);
   }
 
+  const hasPhoto = (p) => p.images && p.images.length > 0;
+
   // ── Shared chrome ──
   function renderChrome() {
     document.querySelectorAll("[data-store-name]").forEach((el) => (el.textContent = S.name));
@@ -80,7 +82,9 @@
       .join("");
     return `
       <a class="card${p.soldOut ? " is-soldout" : ""}" href="product.html?id=${encodeURIComponent(p.id)}" data-category="${esc(p.category)}">
-        <div class="card-media" style="--tint:${c.hex}">${badge}${productVisual(p, c)}</div>
+        <div class="card-media${hasPhoto(p) ? " has-photo" : ""}" style="--tint:${c.hex}">${badge}${productVisual(p, c)}${
+          p.images.length > 1 ? `<img class="alt" src="${esc(p.images[1])}" alt="" loading="lazy">` : ""
+        }</div>
         <div class="card-body">
           <div class="card-row"><h3>${esc(p.name)}</h3><span class="price">${money(p.price)}</span></div>
           <div class="card-row"><span class="swatches">${swatches}</span><span class="meta">${p.colors.length} colour${p.colors.length > 1 ? "s" : ""}</span></div>
@@ -95,6 +99,7 @@
 
     const filters = document.querySelector("[data-filters]");
     const cats = ["all", ...new Set(P.map((p) => p.category))];
+    filters.hidden = cats.length < 3; // no point filtering a single category
     filters.innerHTML = cats
       .map((c, i) => `<button class="chip${i === 0 ? " active" : ""}" data-filter="${c}">${c === "all" ? "All" : c[0].toUpperCase() + c.slice(1)}</button>`)
       .join("");
@@ -113,6 +118,7 @@
       const featured = P.find((p) => p.featured && !p.soldOut) || P.find((p) => !p.soldOut) || P[0];
       hero.innerHTML = productVisual(featured, featured.colors[0]);
       hero.style.setProperty("--tint", featured.colors[0].hex);
+      hero.classList.toggle("has-photo", hasPhoto(featured));
       hero.closest("a").href = `product.html?id=${encodeURIComponent(featured.id)}`;
       document.querySelector("[data-hero-caption]").textContent = `${featured.name} — ${money(featured.price)}`;
     }
@@ -203,10 +209,11 @@
 
     function paintImage() {
       main.style.setProperty("--tint", state.color.hex);
+      main.classList.toggle("has-photo", hasPhoto(p));
       main.innerHTML = productVisual(p, state.color, state.image);
       if (thumbs) {
         thumbs.innerHTML = p.images
-          .map((src, i) => `<button class="${i === state.image ? "active" : ""}" data-thumb="${i}"><img src="${esc(src)}" alt=""></button>`)
+          .map((src, i) => `<button class="${i === state.image ? "active" : ""}" data-thumb="${i}" aria-label="Image ${i + 1} of ${p.images.length}"><img src="${esc(src)}" alt=""></button>`)
           .join("");
       }
     }
@@ -274,7 +281,11 @@
 
     // More from the shop
     const more = document.querySelector("[data-more]");
-    if (more) more.innerHTML = P.filter((x) => x.id !== p.id).slice(0, 3).map(card).join("");
+    if (more) {
+      const others = P.filter((x) => x.id !== p.id).slice(0, 3);
+      more.innerHTML = others.map(card).join("");
+      more.closest("section").hidden = others.length === 0;
+    }
   }
 
   renderChrome();
